@@ -10,14 +10,20 @@ A chatbot that can answer questions about your personal documents using LangChai
 - Powered by Cohere for accurate responses
 - Clean and intuitive Streamlit UI
 ## Demo
-<img width="1019" alt="image" src="https://github.com/user-attachments/assets/bdb6e4c0-311f-4a6a-a67f-b9c6e4a1be10" />
+
 
 <img width="1318" alt="image" src="https://github.com/user-attachments/assets/d9ab3bb0-56b3-4bb1-9c1f-0bc5284e4fd1" />
 
 
-<img width="1357" alt="image" src="https://github.com/user-attachments/assets/698ba838-f617-434f-81da-f90f1f4a5c1e" />
-![Uploading image.png…]()
 
+
+<img width="1357" alt="image" src="https://github.com/user-attachments/assets/698ba838-f617-434f-81da-f90f1f4a5c1e" />
+
+
+
+-Uploaded document 
+
+<img width="1019" alt="image" src="https://github.com/user-attachments/assets/bdb6e4c0-311f-4a6a-a67f-b9c6e4a1be10" />
 
 
 ## Setup
