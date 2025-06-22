@@ -11,13 +11,12 @@ A chatbot that can answer questions about your personal documents using LangChai
 - Clean and intuitive Streamlit UI
 ## Demo
 
+<img width="1318" alt="image" src="https://github.com/user-attachments/assets/2b16bf75-9bd3-437d-8c8e-30cfb64e82b4" />
+
+
+
 
 <img width="1318" alt="image" src="https://github.com/user-attachments/assets/d9ab3bb0-56b3-4bb1-9c1f-0bc5284e4fd1" />
-
-
-
-
-<img width="1357" alt="image" src="https://github.com/user-attachments/assets/698ba838-f617-434f-81da-f90f1f4a5c1e" />
 
 
 
