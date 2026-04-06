@@ -4,7 +4,7 @@ import chromadb
 from chromadb.config import Settings
 import os
 from dotenv import load_dotenv
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from embeddings import ChromaEmbeddingFunction
 import logging
 
@@ -46,7 +46,18 @@ class DocumentProcessor:
         except Exception as e:
             logging.error(f"Error in DocumentProcessor initialization: {str(e)}")
             raise
-
+    def get_uploaded_docs(self):
+        """Retrieve unique list of uploaded document names from ChromaDB."""
+        try:
+            results = self.collection.get(include=["metadatas"])
+            sources = set()
+            for metadata in results['metadatas']:
+                if 'source' in metadata:
+                    sources.add(metadata['source'])
+            return sorted(list(sources))  # Sort for consistent display
+        except Exception as e:
+            logging.error(f"Error retrieving uploaded docs: {str(e)}")
+            return []
     def process_document(self, file):
         """Process uploaded document and store in ChromaDB"""
         logging.info(f"Processing document: {file.name}")

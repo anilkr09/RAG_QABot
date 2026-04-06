@@ -27,6 +27,9 @@ def main():
     # Initialize session state
     if "messages" not in st.session_state:
         st.session_state.messages = []
+    
+    # Load uploaded docs from ChromaDB (persists across sessions)
+    st.session_state.uploaded_docs = doc_processor.get_uploaded_docs()
 
     # File upload section
     st.sidebar.header("Document Upload")
@@ -37,12 +40,24 @@ def main():
     )
 
     if uploaded_files:
-        with st.sidebar:
-            if st.button("Process Documents"):
-                with st.spinner("Processing documents..."):
-                    for file in uploaded_files:
-                        doc_processor.process_document(file)
-                    st.success("Documents processed successfully!")
+        st.sidebar.markdown("**Selected documents:**")
+        for file in uploaded_files:
+            st.sidebar.write(f"- {file.name}")
+
+        if st.sidebar.button("Process Documents"):
+            with st.spinner("Processing documents..."):
+                for file in uploaded_files:
+                    doc_processor.process_document(file)
+                # Refresh the list from ChromaDB after processing
+                st.session_state.uploaded_docs = doc_processor.get_uploaded_docs()
+                st.success("Documents processed successfully!")
+
+    st.sidebar.subheader("Already uploaded documents")
+    if st.session_state.uploaded_docs:
+        for name in st.session_state.uploaded_docs:
+            st.sidebar.write(f"- {name}")
+    else:
+        st.sidebar.write("No documents processed yet.")
 
     # Chat interface
     st.header("Ask Questions About Your Documents")
