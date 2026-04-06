@@ -40,7 +40,7 @@ class QAChain:
             logging.info("Initializing Cohere LLM")
             self.llm = ChatCohere(
                 cohere_api_key=cohere_api_key,
-                model="command",  # Using stable model instead of nightly
+                model=os.getenv("COHERE_MODEL"),
                 temperature=0,
                 request_timeout=30  # Adding timeout
             )
